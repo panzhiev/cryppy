@@ -1,6 +1,6 @@
 /local.properties
 /.idea
-.*iml
+*.iml
 
 # Files for the ART/Dalvik VM
 *.dex
