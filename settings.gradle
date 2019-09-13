@@ -1,0 +1,2 @@
+include ':app', ':info-module', ':wallet-module', ':account-module', ':core-module', ':home-module'
+rootProject.name='cryppy'

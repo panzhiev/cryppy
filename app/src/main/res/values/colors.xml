@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00854F</color>
+    <color name="colorPrimaryDark">#005723</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <!-- bottom navigation -->
+    <color name="colorItemSelectedBnv">@color/colorPrimary</color>
+    <color name="colorItemUnselectedBnv">#919191</color>
+
+</resources>

@@ -1,0 +1,135 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext {
+
+        //common
+        compileSdkVersion = 28
+        targetSdkVersion = 28
+        minSdkVersion = 21
+        gradleVersion = '3.5.0'
+        kotlinVersion = '1.3.41'
+        appCompatSupportLibrary = '1.1.0'
+        androidXCore = '1.1.0'
+
+        //ui
+        constraintLayout = '1.1.3'
+        materialComponents = '1.0.0'
+
+        //dagger
+        dagger = '2.18'
+
+        //coroutines
+        coroutines = "1.0.0"
+
+        //architecture components
+        room = '2.1.0'
+        lifecycle = '2.1.0'
+
+        //network
+        retrofitVersion = '2.4.0'
+        loggingInterceptor = '3.13.1'
+
+        //tests
+        testRunner = '1.2.0'
+        espressoCore = '3.2.0'
+        jUnit = '4.12'
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+
+    def subProjectName = it.name.toString()
+
+    if (subProjectName == 'app') {
+        apply plugin: 'com.android.application'
+    } else {
+        apply plugin: 'com.android.library'
+    }
+
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: 'kotlin-kapt'
+
+    android {
+        compileSdkVersion rootProject.compileSdkVersion
+        defaultConfig {
+            minSdkVersion rootProject.minSdkVersion
+            targetSdkVersion rootProject.targetSdkVersion
+            versionCode 1
+            versionName "1.0"
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        if (subProjectName != 'core-module') {
+            implementation project(':core-module')
+        }
+
+        //common
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+        implementation "androidx.appcompat:appcompat:$appCompatSupportLibrary"
+        implementation "androidx.core:core-ktx:$androidXCore"
+
+        //ui
+        implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
+        implementation "com.google.android.material:material:$materialComponents"
+
+        //dagger
+        implementation "com.google.dagger:dagger:$dagger"
+        implementation "com.google.dagger:dagger-android:$dagger"
+        implementation "com.google.dagger:dagger-android-support:$dagger"
+        kapt "com.google.dagger:dagger-compiler:$dagger"
+        kapt "com.google.dagger:dagger-android-processor:$dagger"
+
+        //coroutines
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
+        //architecture components
+        implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+        kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle"
+        implementation "androidx.room:room-runtime:$room"
+        kapt "androidx.room:room-compiler:$room"
+
+        //network
+        implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+        implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+        implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor"
+
+        //tests
+        androidTestImplementation "androidx.test:runner:$testRunner"
+        androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCore"
+        testImplementation "junit:junit:$jUnit"
+    }
+}

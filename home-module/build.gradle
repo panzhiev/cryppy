@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(":info-module")
+    implementation project(":wallet-module")
+    implementation project(":account-module")
+}

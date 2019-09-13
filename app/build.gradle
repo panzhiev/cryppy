@@ -1,0 +1,13 @@
+android {
+    defaultConfig {
+        applicationId "com.cryppy"
+    }
+}
+
+dependencies {
+    //modules
+    implementation project(':info-module')
+    implementation project(':account-module')
+    implementation project(':wallet-module')
+    implementation project(":home-module")
+}

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">home</string>
+
+    <!-- bottom navigation -->
+    <string name="action_info_tab">Info</string>
+    <string name="action_wallet_tab">Wallet</string>
+    <string name="action_account_tab">Account</string>
+</resources>
