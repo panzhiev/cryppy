@@ -1,4 +1,7 @@
 package com.infomodule.data.model
 
-class Crypto {
-}
+data class Crypto (
+    val id: Long,
+    val name: String,
+    val symbol: String
+)

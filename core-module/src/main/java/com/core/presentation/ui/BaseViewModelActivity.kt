@@ -1,12 +1,12 @@
-package com.base.presentation.ui
+package com.core.presentation.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.base.presentation.viewmodel.ViewModelFactory
+import com.core.presentation.viewmodel.ViewModelFactory
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
 
-abstract class BaseViewModelFragment<VIEW_MODEL : ViewModel> : BaseFragment() {
+abstract class BaseViewModelActivity<VIEW_MODEL : ViewModel> : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory

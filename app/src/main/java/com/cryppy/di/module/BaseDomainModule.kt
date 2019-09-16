@@ -1,13 +1,13 @@
 package com.cryppy.di.module
 
-import com.base.domain.CoroutineContextProvider
-import com.base.domain.CoroutineContextProviderImpl
+import com.core.domain.CoroutineContextProvider
+import com.core.domain.CoroutineContextProviderImpl
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 
 @Module
-abstract class DomainModule {
+class BaseDomainModule {
 
     @Provides
     @Reusable

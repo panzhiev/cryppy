@@ -1,4 +1,4 @@
-package com.base.domain
+package com.core.domain
 
 import kotlin.coroutines.CoroutineContext
 

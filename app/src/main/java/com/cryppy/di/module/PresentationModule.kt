@@ -2,8 +2,8 @@ package com.cryppy.di.module
 
 import androidx.lifecycle.ViewModel
 import com.accountmodule.presentation.main.viewmodel.AccountViewModel
-import com.base.presentation.viewmodel.ViewModelFactory
-import com.base.presentation.viewmodel.ViewModelFactoryImpl
+import com.core.presentation.viewmodel.ViewModelFactory
+import com.core.presentation.viewmodel.ViewModelFactoryImpl
 import com.cryppy.di.annotation.ViewModelKey
 import com.infomodule.presentation.main.viewmodel.CryptoListViewModel
 import com.walletmodule.presentation.main.viewmodel.WalletViewModel

@@ -2,7 +2,7 @@ package com.accountmodule.presentation.main.ui
 
 import com.accountmodule.R
 import com.accountmodule.presentation.main.viewmodel.AccountViewModel
-import com.base.presentation.ui.BaseViewModelFragment
+import com.core.presentation.ui.BaseViewModelFragment
 
 class AccountFragment private constructor() : BaseViewModelFragment<AccountViewModel>() {
 

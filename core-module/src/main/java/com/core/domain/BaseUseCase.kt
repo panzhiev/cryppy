@@ -1,30 +1,30 @@
-package com.base.domain
+package com.core.domain
 
+import com.core.domain.model.ResultObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 abstract class BaseUseCase<REQUEST, RESPONSE>(coroutineContextProvider: CoroutineContextProvider) {
 
-    protected val jobs = HashMap<String, Job>()
-
     private val job = Job()
+    protected val jobs = HashMap<String, Job>()
     private val uiScope = CoroutineScope(coroutineContextProvider.main + job)
-
     protected lateinit var callback: (RESPONSE) -> Unit
 
-    protected open suspend fun execute(
-        value: REQUEST, callback: (RESPONSE) -> Unit,
-        coroutineScope: CoroutineScope
+    open fun execute(
+        value: REQUEST,
+        coroutineScope: CoroutineScope,
+        callback: (ResultObject<RESPONSE>) -> Unit
     ) {
         coroutineScope.launch { callback(executeRequest(value)) }
     }
 
-    protected open suspend fun executeCancelable(
+    open fun executeCancelable(
         value: REQUEST,
         callerIdentifier: String,
-        callback: (RESPONSE) -> Unit,
-        coroutineScope: CoroutineScope = uiScope
+        coroutineScope: CoroutineScope = uiScope,
+        callback: (ResultObject<RESPONSE>) -> Unit
     ) {
 
         jobs[callerIdentifier]?.cancel()
@@ -35,5 +35,5 @@ abstract class BaseUseCase<REQUEST, RESPONSE>(coroutineContextProvider: Coroutin
 
     open fun clearCancellable(callerIdentifier: String) {}
 
-    abstract suspend fun executeRequest(request: REQUEST): RESPONSE
+    abstract suspend fun executeRequest(request: REQUEST): ResultObject<RESPONSE>
 }

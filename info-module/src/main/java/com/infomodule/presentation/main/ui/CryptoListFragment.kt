@@ -2,7 +2,7 @@ package com.infomodule.presentation.main.ui
 
 import android.os.Bundle
 import android.view.View
-import com.base.presentation.ui.BaseViewModelFragment
+import com.core.presentation.ui.BaseViewModelFragment
 import com.info.R
 import com.infomodule.presentation.main.viewmodel.CryptoListViewModel
 
@@ -17,5 +17,6 @@ class CryptoListFragment private constructor() : BaseViewModelFragment<CryptoLis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getCryptos()
     }
 }

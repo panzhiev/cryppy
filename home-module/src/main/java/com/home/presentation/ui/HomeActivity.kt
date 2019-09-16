@@ -3,7 +3,7 @@ package com.home.presentation.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.accountmodule.presentation.main.ui.AccountFragment
-import com.base.presentation.ui.BaseActivity
+import com.core.presentation.ui.BaseActivity
 import com.home.R
 import com.infomodule.presentation.main.ui.CryptoListFragment
 import com.walletmodule.presentation.main.ui.WalletFragment

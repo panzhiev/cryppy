@@ -1,4 +1,4 @@
-package com.base.presentation.ui
+package com.core.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

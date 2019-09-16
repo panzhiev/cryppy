@@ -1,5 +1,6 @@
-package com.base.domain
+package com.core.domain
 
+import com.core.domain.model.ResultObject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -8,10 +9,10 @@ abstract class BackgroundExecuteUseCase<REQUEST, RESPONSE> constructor(
     private val coroutineContextProvider: CoroutineContextProvider
 ) : BaseUseCase<REQUEST, RESPONSE>(coroutineContextProvider) {
 
-    override suspend fun execute(
+    override fun execute(
         value: REQUEST,
-        callback: (RESPONSE) -> Unit,
-        coroutineScope: CoroutineScope
+        coroutineScope: CoroutineScope,
+        callback: (ResultObject<RESPONSE>) -> Unit
     ) {
         coroutineScope.launch {
             val result = withContext(coroutineContextProvider.io) {
@@ -22,11 +23,11 @@ abstract class BackgroundExecuteUseCase<REQUEST, RESPONSE> constructor(
         }
     }
 
-    override suspend fun executeCancelable(
+    override fun executeCancelable(
         value: REQUEST,
         callerIdentifier: String,
-        callback: (RESPONSE) -> Unit,
-        coroutineScope: CoroutineScope
+        coroutineScope: CoroutineScope,
+        callback: (ResultObject<RESPONSE>) -> Unit
     ) {
 
         jobs[callerIdentifier]?.cancel()

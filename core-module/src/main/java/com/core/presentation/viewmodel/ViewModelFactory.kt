@@ -1,4 +1,4 @@
-package com.base.presentation.viewmodel
+package com.core.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
 

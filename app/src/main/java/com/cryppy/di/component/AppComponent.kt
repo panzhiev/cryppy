@@ -2,11 +2,7 @@ package com.cryppy.di.component
 
 import android.app.Application
 import com.cryppy.CryppyApplication
-import com.cryppy.di.module.ActivityModule
-import com.cryppy.di.module.AppModule
-import com.cryppy.di.module.DomainModule
-import com.cryppy.di.module.FragmentModule
-import com.cryppy.di.module.PresentationModule
+import com.cryppy.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -20,7 +16,10 @@ import javax.inject.Singleton
         ActivityModule::class,
         FragmentModule::class,
         PresentationModule::class,
-        DomainModule::class
+        BasePresentationModule::class,
+        BaseDomainModule::class,
+        BaseDataModule::class,
+        NetworkModule::class
     ]
 )
 interface AppComponent {

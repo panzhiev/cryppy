@@ -1,4 +1,4 @@
-package com.base.domain.model
+package com.core.domain.model
 
 private const val ERROR_UNAUTHORIZED = "Unauthorized"
 private const val ERROR_CONNECTION = "Connection error"

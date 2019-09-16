@@ -1,4 +1,4 @@
-package com.base.domain
+package com.core.domain
 
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext

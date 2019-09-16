@@ -1,6 +1,6 @@
 package com.walletmodule.presentation.main.ui
 
-import com.base.presentation.ui.BaseViewModelFragment
+import com.core.presentation.ui.BaseViewModelFragment
 import com.walletmodule.R
 import com.walletmodule.presentation.main.viewmodel.WalletViewModel
 

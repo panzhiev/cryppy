@@ -80,6 +80,9 @@ subprojects {
             targetSdkVersion rootProject.targetSdkVersion
             versionCode 1
             versionName "1.0"
+
+            buildConfigField 'String', "COINMARKET_API_KEY", COINMARKET_API_KEY
+
             testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         }
         buildTypes {
@@ -87,6 +90,10 @@ subprojects {
                 minifyEnabled false
                 proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             }
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
         }
     }
 
@@ -115,6 +122,7 @@ subprojects {
         //coroutines
         implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
         implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+        api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha04'
 
         //architecture components
         implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
